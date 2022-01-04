@@ -3,42 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
+   <link rel="stylesheet" href="/bootstrap-reboot.min.css">
+   <link rel="stylesheet" href="/bootstrap.min.css">
+   <link rel="stylesheet" href="/all.css">
     <link rel="stylesheet" href="main.css">
     <title>Online-menu</title>
 </head>
 <body>
     <div class="header">
-        <nav class="navbar">
-            <div class="navbar_burger">
-                <img src="" alt="">
-            </div>
-            <div class="navbar_logo"></div>
-            <div class="navbar_search"></div>
-        </nav>
-        <div class="tabs">
-            <div class="tab"></div>
-            <div class="tab"></div>
-            <div class="tab"></div>
-            <div class="tab"></div>
-            <div class="tab"></div>
+        <div  id="container" class="container">
+            <div class="row">
+                <nav class="navbar">
+                    <div class="navbar_burger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="navbar_logo">
+                        Clover
+                    </div>
+                    <!-- <div class="navbar_search">
+                        <i class="fas fa-search"></i>
+                    </div> -->
+                    <div class="navbar_shop">
+                        <i id="navbar_button" onclick="openBasket()" class="fas fa-shopping-cart"></i>
+                        <p id="navbar_price">0</p><span> грн</span>
+                    </div>
+                </nav>
         </div>
-        <div class="tabs_subcats">
-            <div class="subcat"></div>
-            <div class="subcat"></div>
-            <div class="subcat"></div>
-            <div class="subcat"></div>
+        <div class="row">
             
-        </div>
-        <div class="menu">
-            <div class="menu_cards">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
+            <div class="tabs">
+               
+                <div class="tab">
+                    <i class="fas fa-pizza-slice"></i>
+                </div>
+                <div class="tab">
+                    <i class="fas fa-cocktail"></i>
+                </div>
+                <div class="tab">
+                    <i class="fas fa-wine-glass"></i>
+                </div>
+            </div>
+            <div class="tabs_subcats">
+                <input id="input" class="tabs_input" type="text" placeholder="Поиск продуктов">
+                <i id="search" class="fas fa-search"></i>
             </div>
         </div>
+        <div id="menu_cards" class="row  menu_cards justify-content-center">
+        </div>  
+            <div class="row footer">
+                <img class="logo_footer" src="/img/facebook-brands.svg" alt="">
+                <img class="logo_footer" src="/img/instagram-brands.svg" alt="">
+                <p>Работаем с 8:00 до 22:00</p>
+            </div>
+     </div>
+     
+     <div id="basket" class="basket">
+        <h3>Ваш заказ:</h3>
     </div>
+</div>
+
     <script src="main.js"></script>
 </body>
 </html>

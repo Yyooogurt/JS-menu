@@ -1,48 +1,90 @@
 body{
-    background: #3a3a3a;
+    font-family: arial;
+    
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    -webkit-box-shadow: 0px 0px 25px 20px rgba(34, 60, 80, 0.1);
+-moz-box-shadow: 0px 0px 25px 20px rgba(34, 60, 80, 0.1);
+box-shadow: 0px 0px 25px 20px rgba(34, 60, 80, 0.1);
 }
 .header{
+    display: flex;
     width: 700px;
     margin: auto;
 }
 .navbar{
+    padding-top: 20px;
+    padding-bottom: 20px;
     justify-content: space-between;
     display: flex;
-    background: #18ddd7;
+    background: #e0e0e0;
     width: 700px;
-    height: 100px;
+    height: 168px;
 }
 .navbar_burger{
     background: #838b85;
     width: 50px;
     height: 50px;
 }
-.navbar_logo{
-    width: 300px;
-    height: 50px;
-    background: #dbce13;
+
+.navbar_logo {
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    border-radius: 50%;
+    font-size: 25px;
+    color: #000000b3;
+    text-align: center;
+    background: #fff;
+    font-family: 'Font Awesome 6 Free';
+    box-shadow: 5px 5px 15px 5px #0000002e;
+  }
+.navbar_shop, .navbar_burger{
+    border-radius: 15px;
+    background: #ffffff;
+    width: 70px;
+    height: 113px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-top: 10px;
 }
-.navbar_search{
-    background: #c120c1;
-    width: 50px;
-    height: 50px;
+.navbar_burger{
+    height: 70px;
 }
 .tabs{
     display: flex;
-    justify-content: space-around;
-    background: #c14e20;
+    justify-content: space-evenly;
+    background: #ffffff;
     width: 700px;
-    height: 100px;
+    margin: auto;
+    height: 80px;
+    align-items: center;
 }
 .tab{
-    background: #20c12d;
-    width: 50px;
-    height: 50px;
+    border-radius: 15px;
+    background: #ffffff;
+    width: 70px;
+    height: 70px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.tab:hover{
+    transition: 0.1s;
+    background: rgb(255, 218, 11);
 }
 .tabs_subcats{
+    align-items: center;
     display: flex;
-    justify-content: space-around;
-    background: #20c120;
+    justify-content: center;
+    background: #c1c1c1;
     width: 700px;
     height: 60px;
 }
@@ -57,14 +99,125 @@ body{
     height: 500px;
 }
 .menu_cards{
-
-    background: #c120b9;
-    width: 650px;
-    height: 450px;
+    display: flex;
+    background: #e0e0e0;
+    width: 700px;
+    height: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 .card{
-    margin: 50px auto;
-    background: #c12028;
-    width: 200px;
-    height: 70px;
+    display: block;
+    align-items: center;
+    text-align: center;
+    border-radius: 15px;
+    margin: 10px;
+    background:#ffffff;;
+    width: 130px;
+    height: 215px;
+}
+.card_image{
+    width: 120px;
+    height: 120px;
+}
+.card_price{
+
+}
+.card_name{
+    margin-top: 5px;
+    margin-left: 43px
+}
+.logo_image{
+display: block;
+ width: 100px;
+}
+.footer{
+    padding: 40px;
+    display: block;
+    text-align: center;
+    background: #fff;
+}
+.logo_footer{
+    margin-bottom: 25px;
+     width: 40px;
+    }
+    .fas, .fa-solid {
+        font-size: 50px;
+        color: #e07619;
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+    }
+ .tabs_input{
+    width: 300px;
+    border-radius: 30px;
+    color: #636060;
+    font-size: 15px;
+    margin: 7px;
+    height: 37px;
+ }   
+ .tabs_subcats i{
+    font-size: 35px;
+ }
+ .tabs_subcats i:active{
+    transition: 0.1s;
+    color: rgb(255, 218, 11);
+ }   
+ .navbar_shop  i:active{
+    transition: 0.1s;
+    color: rgb(255, 218, 11);
+ }   
+.navbar_burger  i:active{
+    transition: 0.1s;
+    color: rgb(255, 218, 11);
+ }   
+#delete i{
+    font-size: 15px;
+}
+.card_block{
+    justify-content: center;
+    padding-top: 8px;
+    display: flex;
+}
+#delete{
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 25px;
+    margin-left: 15px;
+} 
+#delete:hover{
+    transition: 0.1s;
+    background: rgb(255, 218, 11);
+}
+.card_item i{
+    font-size: 25px;
+}
+.card_item{
+    display: flex;
+    justify-content: space-evenly;
+}
+.card_item i:active{
+    transition: 0.1s;
+    color: rgb(255, 218, 11);
+}
+.basket .card{
+    color: #ffff;
+    display: block;
+    align-items: center;
+    text-align: center;
+    border-radius: 15px;
+    margin: 10px;
+    background: #ecaf79;
+    width: 130px;
+    height: 118px;
+}
+.basket{
+    visibility: hidden;
+}
+.basket h3{
+    width: 160px;
+    font-size: 28px;
+    display: block;
+    margin-top: 15px;
+    margin-left: 26px;
 }
