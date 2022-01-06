@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: arial;
     
@@ -213,6 +217,21 @@ display: block;
 }
 .basket{
     visibility: hidden;
+    background: #c1c1c1;
+}
+.burger{
+    visibility: visible;
+    position: absolute;
+    transition: 1s;
+    left: 310px;
+    height: 500px;
+    width: 293px;
+    border-radius: 0px 0px 0px 25px;
+    background: rgb(195, 195, 195);
+}
+.burger h3{
+    text-align: center;
+    margin-top: 12px;
 }
 .basket h3{
     width: 160px;
@@ -220,4 +239,19 @@ display: block;
     display: block;
     margin-top: 15px;
     margin-left: 26px;
+}
+.form{
+    display: inline-grid;
+    margin-left: 47px;
+}
+.form input{
+    border-radius: 25px;
+    margin-bottom: 6px;
+    width: 200px;
+}
+.form input:last-child{
+    background: #e07619;
+}
+.users input{
+    margin-left: 50px;
 }

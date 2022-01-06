@@ -12,12 +12,29 @@
 </head>
 <body>
     <div class="header">
+        <div id="burger" class="burger">
+            <h3>Меню:</h3>
+            <div id="form" class="form">
+                <input id="input_name" type="name" placeholder="Название продукта" value="Сендвич">
+                <input id="input_price" type="number" placeholder="Цена продукта" value="150">
+                <input id="input_submit" type="submit" onclick="createNewCart()">
+            </div>
+            <div id="users" class="users">
+                <div>
+                    <h3>Вход:</h3>
+                    <input type="checkbox" id="user" name="check" value="user" checked  onclick="onlyOne(this)">
+                    <label for="user">User</label>
+                    <input type="checkbox" id="admin" name="check" value="admin" onclick="onlyOne(this)">
+                    <label for="admin">Admin</label>
+                  </div>
+            </div>   
+       </div>
         <div  id="container" class="container">
             <div class="row">
                 <nav class="navbar">
                     <div class="navbar_burger">
-                        <i class="fas fa-bars"></i>
-                    </div>
+                        <i onclick="openMenu()"class="fas fa-bars"></i>
+                    </div>  
                     <div class="navbar_logo">
                         Clover
                     </div>
@@ -31,17 +48,15 @@
                 </nav>
         </div>
         <div class="row">
-            
             <div class="tabs">
-               
                 <div class="tab">
-                    <i class="fas fa-pizza-slice"></i>
+                    <a href="#pizza_0"><i class="fas fa-pizza-slice"></i></a>
                 </div>
                 <div class="tab">
-                    <i class="fas fa-cocktail"></i>
+                    <a href="#pizza_12"><i class="fas fa-cocktail"></i></a>     
                 </div>
                 <div class="tab">
-                    <i class="fas fa-wine-glass"></i>
+                    <a href="#pizza_19"><i class="fas fa-coffee"></i></a>  
                 </div>
             </div>
             <div class="tabs_subcats">
@@ -57,9 +72,8 @@
                 <p>Работаем с 8:00 до 22:00</p>
             </div>
      </div>
-     
      <div id="basket" class="basket">
-        <h3>Ваш заказ:</h3>
+         <h3>Ваш заказ:</h3>
     </div>
 </div>
 
