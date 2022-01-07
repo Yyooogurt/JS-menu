@@ -12,6 +12,7 @@ let count = 18;
        
     }
   }
+// Pizzas
 new Pizza(0, "Маргарита", 125, "/img/margo.webp");
 new Pizza(1, "Фунги", 145, "/img/chicken.webp");
 new Pizza(2, "Донна", 145, "/img/gavai.webp");
@@ -24,7 +25,7 @@ new Pizza(8, "Парма", 175, "/img/margo.webp");
 new Pizza(9, "Четыре мяса ", 195, "/img/margo.webp");
 new Pizza(10, "Бирне", 195, "/img/margo.webp");
 new Pizza(11, "Сальмоне", 215, "/img/margo.webp");
-// Cocti
+// Coctails 
 new Pizza(12, "Апероль", 90, "/img/aperol.jpeg");
 new Pizza(13, "Мохито", 90, "/img/mohito.jpeg");
 new Pizza(14, "Джин тоник", 125, "/img/gin.jpeg");
@@ -34,8 +35,7 @@ new Pizza(17, "Текила санрайз", 90, "/img/tecila.jpeg");
 new Pizza(18, "Негрони", 90, "/img/negroni.jpeg");
 
 
-
-
+// --------------------------    Render catalog    --------------------------
 function renderCatalog(){
   pizzas.forEach(pizza => {
     let div = `<div id="pizza_${pizza.id}" class="card mb-3 mb-sm-0 col-sm-6 col-lg-4 col-xl-3">
@@ -56,32 +56,22 @@ function renderCatalog(){
 }
 renderCatalog();
 
-// Show Total Price
+// --------------------------    Show Total Price    --------------------------
 function renderPrice(result){
     document.getElementById("navbar_price").innerHTML = result; 
 }
-function checkUser(){
-  if (document.getElementById("user").hasAttribute("checked","checked")){
-      let delet = document.getElementsByClassName("delete");
-      for(let i in delet){
-        console.log(i);
-      }
-    //delet.style.visibility = "hidden";
-    console.log(delet);
-  }else{
-    console.log("No");
-  }
-}
-checkUser();
-// Open Basket 
+
+// --------------------------    Open Basket    --------------------------
 function openBasket(){
   let basket = document.getElementById("basket");
   if (basket.style.visibility == "hidden") {
-    basket.style.display = "visible";
+    basket.style.visibility = "visible";
   } else {
     basket.style.visibility = "hidden";
   }
 }
+
+// --------------------------    Create New Product    --------------------------
 function createNewCart(){
   let input_name = document.getElementById("input_name").value;
   let input_price = parseInt(document.getElementById("input_price").value);
@@ -91,7 +81,8 @@ function createNewCart(){
   document.getElementById("menu_cards").innerHTML = "";
   renderCatalog();
 }
-// Open Menu 
+
+// --------------------------    Open Menu     --------------------------
 function openMenu(){
   let burger = document.getElementById("burger");
   if (burger.style.visibility == "hidden") {
@@ -100,51 +91,75 @@ function openMenu(){
     burger.style.visibility = "hidden";
   }
 }
-
-function onlyOne(checkbox) {
-  let checkboxes = document.getElementsByName('check');
-  checkboxes.forEach((item) => {
-      if (item !== checkbox) item.checked = false;
-  });
+// --------------------------    Check User    --------------------------
+function onlyOne(checkbox){
+  let id = checkbox.id;
+  if(id == "user"){
+    console.log("User");
+      if(document.getElementById("user").hasAttribute("checked") == true){
+        let  button = document.querySelectorAll(".menu_cards .card_block button");
+        button.forEach(function(but) {
+          but.style.visibility="hidden";
+        });
+        document.getElementById("form").style.visibility="hidden";
+      }else{
+        console.log("user unchecked");
+      }
+  }else if (id = "admin"){
+    console.log("Admin");
+      if(document.getElementById("user").hasAttribute("checked") == true){
+        console.log("Admin checked");
+        let  button = document.querySelectorAll(".menu_cards .card_block button");
+        button.forEach(function(but) {
+          but.style.visibility="visible";
+        });
+        document.getElementById("form").style.visibility="visible";
+      }else{
+        console.log("admin unchecked");
+      }
+  }
 }
-// Add product to basket
+onlyOne(document.getElementById("user"));
+
+// --------------------------    Add product to basket    --------------------------
 function addCart(id){
       console.log(pizzas[id]);
       basket.push(pizzas[id]);
       let div2 = `
       <div id="basket_${pizzas[id].id}" class="card ">
           <div class="card_block">
-              <p class="card_name">${pizzas[id].name}</p>
+              <p class="card_name">${pizzas[id].name}</p> 
+              <p class="card_price">${pizzas[id].price} грн</p>
               <button id="delete" onclick="deleteCartFromBasket(${pizzas[id].id})"> <i class="fas fa-times"></i></button> 
           </div>
-          <p class="card_price">${pizzas[id].price} грн</p>
+          
       </div>`;
-        document.getElementById("basket").innerHTML += div2;
+      document.getElementById("basket").innerHTML += div2;
       let navbar = parseFloat(document.getElementById("navbar_price").textContent);
       result = parseInt(navbar + pizzas[id].price);
       renderPrice(result);
   }
   
-  // Delete product from basket
-  function deleteCartFromBasket(id){
-      let bas = document.getElementById("basket");
-      let piz = document.getElementById(`basket_${id}`);
-      bas.removeChild(piz);
-      basket.splice(id,1);
-      let navbar = parseFloat(document.getElementById("navbar_price").textContent);
-      result = result - pizzas[id].price;
-      renderPrice(result);
-  }
-// Hide product from catalog
+  // --------------------------    Delete product from basket    --------------------------
+function deleteCartFromBasket(id){
+    let bas = document.getElementById("basket");
+    let piz = document.getElementById(`basket_${id}`);
+    bas.removeChild(piz);
+    basket.splice(id,1);
+    let navbar = parseFloat(document.getElementById("navbar_price").textContent);
+    result = result - pizzas[id].price;
+    renderPrice(result);
+}
+
+// --------------------------    Hide product from catalog    --------------------------
 function deleteCart(id){
   let menu = document.getElementById("menu_cards");
   let piz = document.getElementById(`pizza_${id}`);
   menu.removeChild(piz);
   pizzas.splice(id,1);
-  //document.getElementById("pizza_" + id).style.display="none";
 }
 
-// Search Cart
+// --------------------------    Search Cart    --------------------------
 let search = document.getElementById("search");
 search.addEventListener("click", function() {
   let value = document.getElementById("input").value;

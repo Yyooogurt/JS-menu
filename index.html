@@ -13,21 +13,21 @@
 <body>
     <div class="header">
         <div id="burger" class="burger">
-            <h3>Меню:</h3>
+            <div id="users" class="users">
+                <div>
+                    <h3>Вход:</h3>
+                    <input type="radio" id="user" name="check" value="user"  onclick="onlyOne(this)" checked>
+                    <label for="user">User</label>
+                    <input type="radio" id="admin" name="check" value="admin" onclick="onlyOne(this)">
+                    <label for="admin">Admin</label>
+                  </div>
+            </div>  
             <div id="form" class="form">
+                <h3>Меню:</h3>
                 <input id="input_name" type="name" placeholder="Название продукта" value="Сендвич">
                 <input id="input_price" type="number" placeholder="Цена продукта" value="150">
                 <input id="input_submit" type="submit" onclick="createNewCart()">
             </div>
-            <div id="users" class="users">
-                <div>
-                    <h3>Вход:</h3>
-                    <input type="checkbox" id="user" name="check" value="user" checked  onclick="onlyOne(this)">
-                    <label for="user">User</label>
-                    <input type="checkbox" id="admin" name="check" value="admin" onclick="onlyOne(this)">
-                    <label for="admin">Admin</label>
-                  </div>
-            </div>   
        </div>
         <div  id="container" class="container">
             <div class="row">
@@ -38,9 +38,6 @@
                     <div class="navbar_logo">
                         Clover
                     </div>
-                    <!-- <div class="navbar_search">
-                        <i class="fas fa-search"></i>
-                    </div> -->
                     <div class="navbar_shop">
                         <i id="navbar_button" onclick="openBasket()" class="fas fa-shopping-cart"></i>
                         <p id="navbar_price">0</p><span> грн</span>
@@ -76,7 +73,6 @@
          <h3>Ваш заказ:</h3>
     </div>
 </div>
-
     <script src="main.js"></script>
 </body>
 </html>
